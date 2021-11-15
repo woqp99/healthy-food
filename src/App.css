@@ -7,8 +7,12 @@
 	font-family: 'Ubuntu', sans-serif;
 	box-sizing: border-box;
   font-size: 16px;
+ 
 }
 
+.App{
+  min-width: 750px;
+}
 .main {
   background-color: #7287ae;
 }
@@ -94,14 +98,12 @@ header ul > li > a {
 .wave > img{
   width: 100%;
 	margin:0 auto;
-	/* height: 40vh; */
- 
   position: relative;
-
 }
 
 .wave-top > img {
   background-color: #7287ae;
+  content: url("./img/wave-top.png");
 }
 .sub{
   background-color: #e3ecc2;
@@ -132,6 +134,7 @@ header ul > li > a {
 }
 .p-first > img {
   background-repeat: no-repeat;
+  content: url("./img/noodles1.png");
 }
 
 .p-first p {
@@ -179,17 +182,21 @@ header ul > li > a {
   background-color: #ffffff;
   height: inherit;
   width: 100vw;
+  min-width: 750px;
 }
 
 .event-img > img {
   background-repeat: no-repeat;
   width: 50vw;
+  content: url("./img/noodles4.PNG");
+  min-width: 375px;
 }
 
 .event-cont{
   width: inherit;
   display: flex;
   flex-direction: column;
+  min-width: 375px;
 }
 
 .event-cont > h2 {
@@ -341,6 +348,9 @@ header ul > li > a {
   margin-bottom: -5px;
 }
 
+.wave-bottom > img {
+  content: url("./img/wave-bottom.png");
+}
 footer{
   background-color: #6888b1;
   color: #ffffff;
