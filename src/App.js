@@ -25,7 +25,7 @@ function App() {
         </div>
       </div>
 
-      <div className="wave wave-top"><img src="/static/media/wave-top.39f3a81f.png" ></img></div>
+      <div className="wave wave-top"><img></img></div>
 
       <div className="sub">
         <p className="p-title">POPULAR MENU</p>
@@ -34,7 +34,7 @@ function App() {
           <div className="p-list">
 
             <div className="p-first">
-              <img src="/static/media/noodles1.6e05ac24.png" ></img>
+              <img></img>
               <p className="name">Noodles</p>
               <p className="exp">Lorem ipsum dolor sit amet, consectetur  adipisicing...</p>
               <p className="price">$13</p>
@@ -61,9 +61,10 @@ function App() {
           </div>
         </div>
 
+      <div>
         <div className="event1">
           <div className="event-img">
-            <img src="/static/media/noodles4.0809596a.PNG"></img>
+            <img></img>
           </div>
           <div className="event-cont">
             <h2>Discount up to 50% All Menu</h2>
@@ -84,10 +85,10 @@ function App() {
             </div>
           </div>
           <div className="event-img">
-            <img src="/static/media/noodles2.13be628b.png"></img>
+            <img></img>
           </div>
         </div>
-
+        </div>
         <div className="howto">
           <h2>HOW TO ORDER</h2>
           <div className="order">
@@ -130,7 +131,7 @@ function App() {
             <button></button>
           </div>
         </div>
-        <div className="wave wave-bottom"><img src="/static/media/wave-bottom.459d1397.png" ></img></div>
+        <div className="wave wave-bottom"><img></img></div>
       </div>
 
       <footer>
