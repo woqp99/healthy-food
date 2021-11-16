@@ -1,7 +1,45 @@
 
 import './App.css';
+import ReactDOM from "react-dom";
+import useScroll from "./useScroll";
+import React, { useEffect, useRef, useState } from "react";
+
+function isElementUnderBottom(elem, triggerDiff) {
+  const { top } = elem.getBoundingClientRect();
+  const { innerHeight } = window;
+  return top > innerHeight + (triggerDiff || 0);
+}
+
+function handleScroll() {
+  const elems = document.querySelectorAll('.tran');
+  const elems_x = document.querySelectorAll('.tran-x');
+  elems.forEach(elem => {
+    if (isElementUnderBottom(elem, -20)) {
+      elem.style.opacity = "0";
+      elem.style.transform = 'translateY(70px)';
+    } else {
+      elem.style.opacity = "1";
+      elem.style.transform = 'translateY(0px)';
+    }
+  })
+
+  elems_x.forEach(elem => {
+    if (isElementUnderBottom(elem, -20)) {
+      elem.style.opacity = "0";
+      elem.style.transform = 'translateX(70px)';
+    } else {
+      elem.style.opacity = "1";
+      elem.style.transform = 'translateX(0px)';
+    }
+  })
+
+}
+
+window.addEventListener('scroll', handleScroll);
 
 function App() {
+  const { y } = useScroll();
+  console.log(y);
   return (
     <div className="App">
 
@@ -19,7 +57,7 @@ function App() {
             </nav>
           </header>
         </div>
-        <div className="thumb">
+        <div className="thumb tran" >
           <h1>Healthy Food <br/> Restaurant</h1>
           <p>Lorem ipsum dolor sit amet, consectetuer<br/> adipiscing elit.</p>
         </div>
@@ -28,26 +66,26 @@ function App() {
       <div className="wave wave-top"><img></img></div>
 
       <div className="sub">
-        <p className="p-title">POPULAR MENU</p>
+        <p className="p-title tran">POPULAR MENU</p>
         <div className="p-menu">
 
           <div className="p-list">
 
-            <div className="p-first">
+            <div className="p-first tran">
               <img></img>
               <p className="name">Noodles</p>
               <p className="exp">Lorem ipsum dolor sit amet, consectetur  adipisicing...</p>
               <p className="price">$13</p>
             </div>
 
-            <div className="p-first">
+            <div className="p-first tran">
               <img src="/static/media/noodles1.6e05ac24.png" ></img>
               <p className="name">Noodles</p>
               <p className="exp">Lorem ipsum dolor sit amet, consectetur  adipisicing...</p>
               <p className="price">$13</p>
             </div>
-
-            <div className="p-first">
+ 
+            <div className="p-first tran">
               <img src="/static/media/noodles1.6e05ac24.png" ></img>
               <p className="name">Noodles</p>
               <p className="exp">Lorem ipsum dolor sit amet, consectetur  adipisicing...</p>
@@ -56,8 +94,8 @@ function App() {
 
           </div>
 
-          <div className="morebtn">
-            <button className="s-more more">SHOW MORE</button>
+          <div className="morebtn s-more">
+            <button className="s-more more tran">SHOW MORE</button>
           </div>
         </div>
 
@@ -66,8 +104,8 @@ function App() {
           <div className="event-img">
             <img></img>
           </div>
-          <div className="event-cont">
-            <h2>Discount up to 50% All Menu</h2>
+          <div className="event-cont tran" >
+            <h2>Discount up to <br/>50% All Menu</h2>
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
             <div className="morebtn r-more">
               <button className=" more">READ MORE</button>
@@ -77,8 +115,8 @@ function App() {
         </div>
 
         <div className="event1">
-          <div className="event-cont">
-            <h2>January’s Promo: Buy 1 Get 1 Free!</h2>
+          <div className="event-cont tran" >
+            <h2>January’s <br/>Promo: Buy 1 <br/>Get 1 Free!</h2>
             <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
             <div className="morebtn r-more">
               <button className=" more">READ MORE</button>
@@ -90,21 +128,21 @@ function App() {
         </div>
         </div>
         <div className="howto">
-          <h2>HOW TO ORDER</h2>
+          <h2 className="tran">HOW TO ORDER</h2>
           <div className="order">
-            <div className="order-cont">
+            <div className="order-cont tran-x">
               <h2>01</h2>
               <h3>Order</h3>
               <p>Lorem ipsum dolor sit amet, consecte sectetur adipisicing elit, tation omne  ullamco laboris nisi ut aliqolore.</p>
             </div>
 
-            <div className="order-cont">
+            <div className="order-cont tran-x">
               <h2>02</h2>
               <h3>Choose Menu</h3>
               <p>Lorem ipsum dolor sit amet, consecte sectetur adipisicing elit, tation omne  ullamco laboris nisi ut aliqolore.</p>
             </div>
 
-            <div className="order-cont">
+            <div className="order-cont tran-x">
               <h2>03</h2>
               <h3>Delivery</h3>
               <p>Lorem ipsum dolor sit amet, consecte sectetur adipisicing elit, tation omne  ullamco laboris nisi ut aliqolore.</p>
@@ -114,18 +152,18 @@ function App() {
         </div>
 
         <div className="free-d">
-          <h1>Free Delivery</h1>
-          <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
-          <div className="morebtn r-more">
-            <button className=" more">GET VOUCHER</button>
-          </div>
+            <h1 className="tran">Free Delivery</h1>
+            <p className="tran">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</p>
+            <div className="morebtn r-more s-more">
+              <button className="tran more">GET VOUCHER</button>
+            </div>
         </div>
 
         <div className="wise">
-          <h1>“</h1>
-          <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis </h2>
-          <h2>Agus Waiters</h2>
-          <div className="sns">
+          <h1 className="tran">“</h1>
+          <h2  className="tran">Lorem ipsum dolor sit amet, consectetur adipisicing elit, <br/>sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br/> Ut enim ad minim veniam, quis </h2>
+          <h2  className="tran">Agus Waiters</h2>
+          <div className="sns tran">
             <button></button>
             <button></button>
             <button></button>
